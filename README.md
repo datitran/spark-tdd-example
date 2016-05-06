@@ -4,3 +4,5 @@ This is a very basic example of how to use TDD in the context of PySpark, Spark'
 
 Author: Dat Tran
 
+License: See LICENSE.txt
+
