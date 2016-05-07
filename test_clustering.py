@@ -3,7 +3,7 @@ import sys
 import unittest
 
 try:
-    # Append PySpark to PYTHONPATH / Spark 1.6
+    # Append PySpark to PYTHONPATH / Spark 1.6.1
     sys.path.append(os.path.join(os.environ['SPARK_HOME'], "python"))
     sys.path.append(os.path.join(os.environ['SPARK_HOME'], "python", "lib", "py4j-0.9-src.zip"))
 except KeyError as e:

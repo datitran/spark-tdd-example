@@ -8,7 +8,7 @@ License: See LICENSE.txt
 
 ### Getting Started
 
-1. Use brew: `brew install apache-spark`
+1. Use brew to install Apache Spark: `brew install apache-spark`
 2. Change logging settings:
   - `cd /usr/local/Cellar/apache-spark/1.6.1/libexec/conf`
   - `cp log4j.properties.template log4j.properties`
