@@ -1,17 +1,16 @@
-from pyspark.sql import SQLContext
+from pyspark.sql import SparkSession
+from pyspark.ml.linalg import DenseVector
 from pyspark.ml.feature import StandardScaler
 from pyspark.ml.clustering import KMeans, KMeansModel
-from pyspark.mllib.linalg import DenseVector
 
-def read_from_db(sc, segments):
+def read_from_db(spark, segments):
     """Read data from database into Spark DataFrame."""
     pass
 
-def convert_df(sc, data):
-    """Transform dataframe into the format that can be used by MLlib."""
-    sqlContext = SQLContext(sc)
-    input_data = data.map(lambda x: (x[0], DenseVector(x[1:])))
-    df = sqlContext.createDataFrame(input_data, ["id", "features"])
+def convert_df(spark, data):
+    """Transform dataframe into the format that can be used by Spark ML."""
+    input_data = data.rdd.map(lambda x: (x[0], DenseVector(x[1:])))
+    df = spark.createDataFrame(input_data, ["id", "features"])
     return df
 
 def rescale_df(data):
@@ -28,11 +27,11 @@ def assign_cluster(data):
     label_df = model.transform(data)
     return label_df
 
-def save_to_hdfs(sc):
+def save_to_hdfs(spark):
     """Save results to HDFS."""
     pass
 
 if __name__ == "__main__":
-    sc = SparkContext()
+    spark = SparkSession.builder.getOrCreate()
 
-    sc.stop()
+    spark.stop()
