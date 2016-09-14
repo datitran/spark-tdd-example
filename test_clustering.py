@@ -4,8 +4,8 @@ import unittest
 
 try:
     # Append PySpark to PYTHONPATH / Spark 2.0.0
-    sys.path.append(os.path.join(os.environ['SPARK_HOME'], "python"))
-    sys.path.append(os.path.join(os.environ['SPARK_HOME'], "python", "lib",
+    sys.path.append(os.path.join(os.environ["SPARK_HOME"], "python"))
+    sys.path.append(os.path.join(os.environ["SPARK_HOME"], "python", "lib",
                                  "py4j-0.10.1-src.zip"))
 except KeyError as e:
     print("SPARK_HOME is not set", e)
@@ -56,8 +56,8 @@ class ClusteringTest(unittest.TestCase):
     def test_convert_df(self):
         """Check if dataframe has the form (id, DenseVector)."""
         input_df = clustering.convert_df(self.spark, self.mock_df)
-        self.assertEqual(input_df.dtypes, [('id', 'string'),
-                                           ('features', 'vector')])
+        self.assertEqual(input_df.dtypes, [("id", "string"),
+                                           ("features", "vector")])
 
     def test_rescale_df_first_entry(self):
         """Check if rescaling works for the first entry of the first row."""
