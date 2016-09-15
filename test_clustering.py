@@ -74,7 +74,7 @@ class ClusteringTest(unittest.TestCase):
                                .take(1)[0].toArray()[1], 0.48224282217041214)
 
     def test_assign_cluster(self):
-        """Check if rows are labeled are as expected."""
+        """Check if rows are labeled as expected."""
         input_df = clustering.convert_df(self.spark, self.mock_df)
         scaled_df = clustering.rescale_df(input_df)
         label_df = clustering.assign_cluster(scaled_df)
