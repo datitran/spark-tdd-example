@@ -53,4 +53,4 @@ class ClusteringTest(basetests.BaseTestClass):
         scaled_df = clustering.rescale_df(input_df)
         label_df = clustering.assign_cluster(scaled_df)
         self.assertEqual(label_df.rdd.map(lambda x: x.label).collect(),
-                         [1, 1, 1, 0, 0])
+                         [0, 0, 0, 1, 1])

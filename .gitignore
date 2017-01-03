@@ -2,3 +2,5 @@ _pycache_
 spark-warehouse
 *.pyc
 .idea/
+derby.log
+metastore_db/
