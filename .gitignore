@@ -4,3 +4,4 @@ spark-warehouse
 .idea/
 derby.log
 metastore_db/
+.cache/
